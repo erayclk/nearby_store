@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "279543214553",
+    "firebase_url": "https://nearbystore-cb8cd-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "nearbystore-cb8cd",
+    "storage_bucket": "nearbystore-cb8cd.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:279543214553:android:a2dc67eadbf994fb6369c8",
+        "android_client_info": {
+          "package_name": "com.example.nearby_store"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCPUf5ASwy8qhGg4qLWaqunraxcbOCFJ4Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
