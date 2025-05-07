@@ -34,10 +34,12 @@ import com.example.nearby_store.R
 @Composable
 @Preview
 fun TopBar() {
-    Column(
-        modifier = Modifier.fillMaxWidth()
+    Box(
+        modifier = Modifier
+            .fillMaxWidth()
+            .height(325.dp)
     ) {
-
+        // Mavi arka plan kutusu
         Box(
             modifier = Modifier
                 .fillMaxWidth()
@@ -52,7 +54,7 @@ fun TopBar() {
                 Row(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .padding(top = 10.dp,end = 15.dp),
+                        .padding(top = 10.dp, end = 15.dp),
                     horizontalArrangement = Arrangement.End
                 ) {
                     Image(
@@ -95,23 +97,23 @@ fun TopBar() {
             }
         }
 
-        // Card: Üste doğru bindirilmiş gibi göstermek için offset kullan
+        // Card: Üste doğru bindirilmiş olarak gösteriliyor
         Box(
-
             modifier = Modifier
-                .offset(y = (-55).dp) // yukarıya taşır
-                .align(Alignment.CenterHorizontally)
+                .align(Alignment.TopCenter)
+                .offset(y = 225.dp) // 280 - 55 = 225
                 .size(width = 300.dp, height = 100.dp)
                 .background(color = Color.White, shape = RoundedCornerShape(15.dp))
-
         ) {
-            Row (modifier = Modifier.fillMaxSize(),
-
-                ){
-                Column (modifier = Modifier.fillMaxSize().weight(1f),){
+            Row(
+                modifier = Modifier.fillMaxSize(),
+            ) {
+                Column (modifier = Modifier
+                    .fillMaxSize()
+                    .weight(1f),){
                     Row (modifier = Modifier.padding(15.dp),
                         verticalAlignment = Alignment.CenterVertically
-                        ){
+                    ) {
 
                         Image(
                             painter = painterResource(R.drawable.wallet),
@@ -163,7 +165,8 @@ fun TopBar() {
 
                 VerticalDivider(thickness = 1.dp, modifier = Modifier.padding(top =8.dp, bottom = 8.dp))
 
-                Column (modifier = Modifier.fillMaxSize()
+                Column (modifier = Modifier
+                    .fillMaxSize()
                     .padding(start = 20.dp)
                     .weight(1f),
                     horizontalAlignment = Alignment.Start,
