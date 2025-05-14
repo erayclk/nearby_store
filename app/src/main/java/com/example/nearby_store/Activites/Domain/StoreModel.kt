@@ -4,8 +4,8 @@ import java.io.Serializable
 
 data class StoreModel(
     var Id: Int = 0,
-    var CategoryId: String,
-    var varTitle: String = "",
+    var CategoryId: String = "",
+    var Title: String = "",
     var Latitude: Double = 0.0,
     var Longitude: Double = 0.0,
     var Call: String = "",

@@ -12,9 +12,13 @@ class ResultsViewModel {
 
         return repo.loadSubCategory(id)
     }
-    fun loadPopulary(id: String) : LiveData<MutableList<StoreModel>> {
+    fun loadPopular(id: String) : LiveData<MutableList<StoreModel>> {
 
         return repo.loadPopular(id)
+    }
+    fun loadNearest(id: String) : LiveData<MutableList<StoreModel>> {
+
+        return repo.loadNearest(id)
     }
 
 }

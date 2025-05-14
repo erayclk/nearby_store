@@ -43,7 +43,34 @@ class ResultsRepository {
     fun loadPopular(id: String): LiveData<MutableList<StoreModel>> {
 
         val listData = MutableLiveData<MutableList<StoreModel>>()
-        val ref = firebaseDatabase.getReference("SubCategory")
+        val ref = firebaseDatabase.getReference("Stores")
+        val query:Query= ref.orderByChild("CategoryId").equalTo(id)
+
+        query.addListenerForSingleValueEvent(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+
+                val list = mutableListOf<StoreModel>()
+                for (data in snapshot.children) {
+                    val model = data.getValue(StoreModel::class.java)
+                    model?.let { list.add(it) }
+                }
+                listData.value = list
+
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                TODO("Not yet implemented")
+            }
+
+
+        })
+        return listData
+
+    }
+fun loadNearest(id: String): LiveData<MutableList<StoreModel>> {
+
+        val listData = MutableLiveData<MutableList<StoreModel>>()
+        val ref = firebaseDatabase.getReference("Nearest")
         val query:Query= ref.orderByChild("CategoryId").equalTo(id)
 
         query.addListenerForSingleValueEvent(object : ValueEventListener {

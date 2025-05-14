@@ -19,6 +19,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.nearby_store.Activites.Domain.CategoryModel
+import com.example.nearby_store.Activites.Domain.StoreModel
 import com.example.nearby_store.R
 import com.example.nearby_store.ViewModel.ResultsViewModel
 
@@ -44,8 +45,16 @@ class ResultsActivity : AppCompatActivity() {
 fun ResultList(id: String = "1", title: String = "result", onBackClick: () -> Unit = {}) {
 
     val viewModel = ResultsViewModel()
+
     val subCategoryList = remember { mutableStateListOf<CategoryModel>() }
+    val popular = remember { mutableStateListOf<StoreModel>() }
+
+
     var showsubCategoryLoading by remember { mutableStateOf(true) }
+    var showsPopularLoading by remember { mutableStateOf(true) }
+
+    val nearest = remember { mutableStateListOf<StoreModel>() }
+    var showNearestLoading by remember { mutableStateOf(true) }
 
     LaunchedEffect(Unit) {
         viewModel.loadSubCategory(id).observeForever {
@@ -55,12 +64,28 @@ fun ResultList(id: String = "1", title: String = "result", onBackClick: () -> Un
         }
 
     }
+    LaunchedEffect(Unit) {
+        viewModel.loadPopular(id).observeForever {
+            popular.clear()
+            popular.addAll(it)
+            showsPopularLoading = false
+        }
+
+    }
+    LaunchedEffect(Unit) {
+        viewModel.loadNearest(id).observeForever {
+            nearest.clear()
+            nearest.addAll(it)
+            showNearestLoading = false
+        }
+
+    }
 
     LazyColumn(
         modifier = Modifier
             .fillMaxSize()
-            .background(color = colorResource(R.color.light_blue))
-        ,horizontalAlignment = Alignment.CenterHorizontally
+            .background(color = colorResource(R.color.light_blue)),
+        horizontalAlignment = Alignment.CenterHorizontally
     ) {
         item {
             TopTitle(title, onBackClick = onBackClick)
@@ -68,9 +93,17 @@ fun ResultList(id: String = "1", title: String = "result", onBackClick: () -> Un
         item {
             Search()
         }
-        item{
+        item {
             SubCategorySection(subCategoryList, showsubCategoryLoading)
+        }
+        item {
+            PopularSection(popular, showsPopularLoading)
+        }
+        item {
+            NearestSection(nearest, showNearestLoading)
         }
     }
 
 }
+
+
