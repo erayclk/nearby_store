@@ -1,61 +1,84 @@
 # Nearby Store
 
-Nearby Store, kullanıcıların yakınlarındaki mağazaları keşfetmelerini ve mağaza bilgilerine kolayca erişmelerini sağlayan bir Android uygulamasıdır.
+Nearby Store, kullanıcıların yakınlarındaki mağazaları keşfetmelerini ve incelemelerini sağlayan, Jetpack Compose ile geliştirilmiş modern bir Android uygulamasıdır. Uygulama, kategorileri gezme, popüler mağazaları görüntüleme ve en yakın konumları bulma konusunda sorunsuz bir deneyim sunar.
 
 ## Özellikler
 
-- 📍 Konum bazlı mağaza arama
-- 🏪 Mağaza detayları görüntüleme
-- 📱 Kullanıcı dostu arayüz
-- 🔍 Gelişmiş arama ve filtreleme özellikleri
-- 📊 Mağaza değerlendirme ve yorumlar
+- 🏪 **Kategori Gezinme**: Sezgisel grid düzeni ile farklı mağaza kategorilerini keşfedin
+- 🔥 **Popüler Mağazalar**: Bölgenizdeki trend ve popüler mağazaları görüntüleyin
+- 📍 **En Yakın Mağazalar**: Konumunuza en yakın mağazaları bulun
+- 🔍 **Arama Özelliği**: Belirli mağaza veya kategorileri arayın
+- 🎯 **Kullanıcı Dostu Arayüz**: Akıcı animasyonlarla modern Material Design 3 arayüzü
+- 📱 **Duyarlı Tasarım**: Çeşitli ekran boyutları için optimize edilmiş
+
+## Teknik Altyapı
+
+- **Programlama Dili**: Kotlin
+- **UI Framework**: Jetpack Compose
+- **Mimari**: MVVM (Model-View-ViewModel)
+- **Veritabanı**: Firebase Realtime Database
+- **Resim Yükleme**: Coil
+- **Durum Yönetimi**: Compose State
 
 ## Ekran Görüntüleri
 
-*Ekran görüntüleri yakında eklenecektir.*
+<img src="screenshots/main_page.png" width="300" alt="Ana Sayfa">
+<img src="screenshots/nearby_store_page.png" width="300" alt="Yakındaki Mağazalar Sayfası">
 
-## Teknik Detaylar
+## Proje Yapısı
 
-- Kotlin programlama dili
-- Android Jetpack bileşenleri
-- Material Design 3
-- Google Maps API entegrasyonu
-- Firebase servisleri
+```
+app/
+├── src/
+│   ├── main/
+│   │   ├── java/
+│   │   │   └── com/
+│   │   │       └── example/
+│   │   │           └── nearby_store/
+│   │   │               ├── Activites/
+│   │   │               │   ├── Dashboard/
+│   │   │               │   └── Result/
+│   │   │               ├── Domain/
+│   │   │               ├── Repository/
+│   │   │               └── ViewModel/
+│   │   └── res/
+│   │       ├── drawable/
+│   │       ├── layout/
+│   │       └── values/
+└── build.gradle
+```
 
-## Kurulum
+## Kurulum Talimatları
 
 1. Projeyi klonlayın:
 ```bash
 git clone https://github.com/yourusername/nearby_store.git
 ```
 
-2. Android Studio'da projeyi açın
+2. Projeyi Android Studio'da açın
 
-3. Gerekli bağımlılıkların yüklenmesini bekleyin
+3. Firebase'i yapılandırın:
+   - Yeni bir Firebase projesi oluşturun
+   - Android uygulamanızı Firebase projesine ekleyin
+   - `google-services.json` dosyasını indirip app dizinine ekleyin
 
-4. Uygulamayı derleyin ve çalıştırın
+4. Projeyi derleyin ve çalıştırın
 
-## Gereksinimler
+## Bağımlılıklar
 
-- Android Studio Arctic Fox veya üzeri
-- Android SDK 21+
-- Google Play Services
-- Firebase hesabı
+- Jetpack Compose
+- Firebase Realtime Database
+- Coil (resim yükleme için)
+- Material Design 3 bileşenleri
 
 ## Katkıda Bulunma
 
-1. Bu depoyu fork edin
-2. Yeni bir branch oluşturun (`git checkout -b feature/amazing-feature`)
-3. Değişikliklerinizi commit edin (`git commit -m 'Add some amazing feature'`)
-4. Branch'inizi push edin (`git push origin feature/amazing-feature`)
-5. Pull Request oluşturun
+Katkılarınızı bekliyoruz! Lütfen Pull Request göndermekten çekinmeyin.
 
 ## Lisans
 
-Bu proje MIT lisansı altında lisanslanmıştır. Detaylar için [LICENSE](LICENSE) dosyasına bakın.
+Bu proje MIT Lisansı altında lisanslanmıştır - detaylar için LICENSE dosyasına bakın.
 
 ## İletişim
 
-Proje Sahibi - [@yourusername](https://github.com/yourusername)
-
-Proje Linki: [https://github.com/yourusername/nearby_store](https://github.com/yourusername/nearby_store) 
+Sorularınız veya önerileriniz için lütfen repository'de bir issue açın. 
