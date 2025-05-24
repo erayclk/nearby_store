@@ -52,7 +52,7 @@ app/
 
 1. Projeyi klonlayın:
 ```bash
-git clone https://github.com/yourusername/nearby_store.git
+git clone https://github.com/erayclk/nearby_store.git
 ```
 
 2. Projeyi Android Studio'da açın
